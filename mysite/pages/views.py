@@ -1,3 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
+# index.html のview関数
+def index(request):
+    params = {
+        'title':'Taishiのホームページ',
+    }
+    return render(request, 'pages/index.html', params)
