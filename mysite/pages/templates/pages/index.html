@@ -1,11 +1,15 @@
+{% load static %}<!-- staticフォルダにあるファイルを読み込む -->
 <!doctype html>
 <html lang="ja">
-<head>
-    <meta charset="utf-8">
-    <title>{{title}}</title>
-</head>
+    <head>
+        <meta charset="utf-8">
+        <title>{{title}}</title>
+        <meta name="description" content="Taishiのポートフォリオサイトです。">
+        <link rel="stylesheet" href="{% static 'pages/css/style.css' %}">
+    </head>
 
-<body>
-    <h1>Taishiのホームページ</h1>
-</body>
+    <body>
+        <h1>Taishiのホームページ</h1>
+    </body>
+
 </html>
