@@ -50,3 +50,13 @@ img {
     text-transform: uppercase;
     font-weight: normal;
 }
+/* 背景動画 */
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* ビューポート全体の幅 */
+    height: 100vh; /* ビューポート全体の高さ */
+    object-fit: cover; /* 動画のアスペクト比を維持しつつ、画面全体を埋めるように拡大する。これにより、動画が縦横比を壊さずに表示される。*/
+    z-index: -1; /*  動画が他のすべての要素（テキストやナビゲーション）よりも後ろに表示されるように設定している。 */
+}
