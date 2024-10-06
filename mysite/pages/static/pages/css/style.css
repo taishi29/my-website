@@ -16,6 +16,9 @@ img {
 .page-header {
     display: flex;
     justify-content: space-between;
+    background: rgba(255, 255, 255, 0.2); /* 半透明の背景色を指定 */
+    padding: 10px;
+    border-radius: 10px; /* 少し丸みをつける（オプション） */
 }
 .logo {
     width: 50px;
@@ -59,4 +62,5 @@ img {
     height: 100vh; /* ビューポート全体の高さ */
     object-fit: cover; /* 動画のアスペクト比を維持しつつ、画面全体を埋めるように拡大する。これにより、動画が縦横比を壊さずに表示される。*/
     z-index: -1; /*  動画が他のすべての要素（テキストやナビゲーション）よりも後ろに表示されるように設定している。 */
+    filter: brightness(50%); /* 明るさを50%に設定して暗くする */
 }
