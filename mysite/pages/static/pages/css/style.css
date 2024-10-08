@@ -64,3 +64,126 @@ img {
     z-index: -1; /*  動画が他のすべての要素（テキストやナビゲーション）よりも後ろに表示されるように設定している。 */
     filter: brightness(50%); /* 明るさを50%に設定して暗くする */
 }
+
+.additional-content {
+    background-color: #467cb2; /* 背景色を設定 */
+    color: #ffffff; /* テキストの色 */
+    min-height: 100vh; /* 画面全体の高さを確保 */
+    margin-top: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* テキストが大から小へと流れるように表示されるアニメーションです */
+.animate {
+    font-size: 25px;
+    font-family:"Times New Roman", 游明朝, YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho Pro", serif;
+  }
+  .animate span {
+    display: inline-block;
+  }
+  
+  .animate span:nth-of-type(2) {
+    animation-delay: .05s;
+  }
+  .animate span:nth-of-type(3) {
+    animation-delay: .1s;
+  }
+  .animate span:nth-of-type(4) {
+    animation-delay: .15s;
+  }
+  .animate span:nth-of-type(5) {
+    animation-delay: .2s;
+  }
+  .animate span:nth-of-type(6) {
+    animation-delay: .25s;
+  }
+  .animate span:nth-of-type(7) {
+    animation-delay: .3s;
+  }
+  .animate span:nth-of-type(8) {
+    animation-delay: .35s;
+  }
+  .animate span:nth-of-type(9) {
+    animation-delay: .4s;
+  }
+  .animate span:nth-of-type(10) {
+    animation-delay: .45s;
+  }
+  .animate span:nth-of-type(11) {
+    animation-delay: .5s;
+  }
+  .animate span:nth-of-type(12) {
+    animation-delay: .55s;
+  }
+  
+  .top-wrapper-txt span {
+    opacity: 0;
+    transform: translate(-150px, 0) scale(.3);
+    animation: leftRight .5s forwards;
+  }
+  
+  
+  @keyframes leftRight {
+    40% {
+      transform: translate(50px, 0) scale(.8);
+      opacity: 1;
+      color: #fff;
+    }
+  
+    60% {
+      color: #fff;
+    }
+  
+    80% {
+      transform: translate(0) scale(3);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: translate(0) scale(1);
+      opacity: 1;
+    }
+  }
+
+
+  /*----------------------------
+scroll_up ｜下から上へ出現
+----------------------------*/
+.scroll_up {
+    transition: 0.8s ease-in-out;
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  .scroll_up.on {
+    transform: translateY(0);
+    opacity: 1.0;
+  }
+  
+  /*----------------------------
+  scroll_left ｜左から出現
+  ----------------------------*/
+  .scroll_left {
+      transition: 0.8s ease-in-out;
+      transform: translateX(-30px);
+      opacity: 0;
+  }
+  .scroll_left.on {
+      opacity: 1.0;
+      transform: translateX(0);
+  }
+  
+  /*----------------------------
+  scroll_right ｜右から出現
+  ----------------------------*/
+  .scroll_right {
+      transition: 0.8s ease-in-out;
+      transform: translateX(30px);
+      opacity: 0;
+  }
+  .scroll_right.on {
+      opacity: 1.0;
+      transform: translateX(0);
+  }
