@@ -77,15 +77,16 @@ img {
 }
 
 /* テキストが大から小へと流れるように表示されるアニメーションです */
-.animate {
+.animate span{
     font-size: 25px;
     font-family: "Times New Roman", 游明朝, YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho Pro", serif;
+    opacity: 0;
 }
 
 /* アニメーションが開始されたとき */
 .animate.on span {
     display: inline-block;
-    opacity: 0;
+    opacity: 1;
     transform: translate(-150px, 0) scale(.3);
     animation: leftRight .5s forwards;
 }
