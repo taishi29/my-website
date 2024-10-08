@@ -1,7 +1,7 @@
 // scroll_effect
 $(document).ready(function () {
     // 要素の取得
-    var scrollAnimationElm = document.querySelectorAll('.scroll_up, .scroll_left, .scroll_right');
+    var scrollAnimationElm = document.querySelectorAll('.scroll_up, .scroll_left, .scroll_right, .animate');
 
     // アニメーションを実行する関数
     var scrollAnimationFunc = function () {
