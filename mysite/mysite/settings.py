@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-s(@ztlxrm_a-&h9o+lu(4wi=wxr*#7xk$)u#!@@ycfy!e_0fxa
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['my-websitegunicorn-your-project-name-wsgi.onrender.com', 'loalhost']
+
 
 
 # Application definition
