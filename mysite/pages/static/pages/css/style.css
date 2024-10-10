@@ -52,7 +52,10 @@ img {
     font-size: 4rem;
     text-transform: uppercase;
     font-weight: normal;
+    transition: 0.8s ease-in-out;
+    transform: translateX(-30px);
 }
+
 /* 背景動画 */
 #bg-video {
     position: fixed;
@@ -156,6 +159,25 @@ img {
     }
 }
 
+/* 初期状態のスタイル */
+.hidden {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.visible {
+    opacity: 1;
+}
+
+/*----------------------------
+ extinction｜消滅
+----------------------------*/
+.extinction {
+    opacity: 1.0;
+    transition: opacity 0.5s ease-in-out; /* フェードアウトの速度と効果 */
+}
+ .extinction.on {
+    opacity: 0;
+ }
 
 
   /*----------------------------
