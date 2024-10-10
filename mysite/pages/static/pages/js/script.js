@@ -8,7 +8,7 @@ $(document).ready(function () {
     // アニメーションを実行する関数
     var scrollAnimationFunc = function () {
         for (var i = 0; i < scrollAnimationElm.length; i++) {
-            var triggerMargin = 100;
+            var triggerMargin = 300;
             if (window.innerHeight > scrollAnimationElm[i].getBoundingClientRect().top + triggerMargin) {
                 scrollAnimationElm[i].classList.add('on');
             }
@@ -25,8 +25,8 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     // 要素の取得
-    var scrollAnimationElm = document.querySelectorAll('.extinction, .page-title');
-    var englishMessageElm = $('.welcome');
+    var scrollAnimationElm = document.querySelectorAll('.extinction');
+    var englishMessageElm = $('.appearance');
 
     var scrollAnimationFunc = function () {
         for (var i = 0; i < scrollAnimationElm.length; i++) {
