@@ -66,6 +66,9 @@ img {
     max-width: 600px;
     margin: 0 auto;
 }
+.container {
+    display: flex;
+}
 
 /* タイトルのスタイル */
 .section-title {
