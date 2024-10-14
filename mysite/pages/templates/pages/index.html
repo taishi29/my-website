@@ -1,71 +1,59 @@
+{% extends "pages/base.html" %}
 {% load static %}
-<!doctype html>
-<html lang="ja">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{title}}</title>
-        <meta name="description" content="Taishiのポートフォリオサイトです。">
-        <!-- Bootstrap css -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <!-- jQuery CDN -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>        
-        <!-- 自作のcss -->
-        <link rel="stylesheet" href="{% static 'pages/css/style.css' %}">
-    </head>
 
-    <body>
-        <!-- ヘッダー -->
-        <header class="page-header">
-            <h1><a href="{% url goto %}"><img class="logo" src="{% static 'pages/images/logo.png' %}" alt="logoの画像"></a></h1>
-            <!-- ナビ -->
-            <nav>
-                <ul class="main-nav">
-                    <li><a href="#about">自己紹介</a></li>
-                    <li><a href="#works">制作物</a></li>
-                    <li><a href="#contact">問い合わせ</a></li>
-                </ul>
-            </nav>
-        </header>
-    
-        <!-- jumbotron→横幅全体に広がる大きなセクションを作る -->
-        <section class="jumbotron jumbotron-fluid mb-0">
-            <!--背景用の動画ファイル-->
-            <video id="bg-video" autoplay loop muted>
-                <source src="{% static 'pages/movies/background.mp4' %}" type="video/mp4">
-                 <!-- 動画ファイルがロードできなかった場合に表示するメッセージ -->
-                 Your browser does not support the video tag.
-            </video>
-            <div class="home-content wrapper scroll_left">
-                <h2 class="page-title extinction">ようこそ、私のホームページへ</h2>
-                <h2 class="page-title appearance hidden">Step into My Site</h2>
-            </div>
-        </section>
+{% block title %}TOPページ{% endblock title %}
 
-        <section class="additional-content original-gradient">
-            <div class="content-section scroll_up">
-                <h2 class="section-content">Helllo! There!<h3>
-                <br>
-                <p class="section-text">
-                    このWebサイトは、私、Taishiのポートフォリオサイトです！<br>
-                    正直、「自分、地元では"路上の伝説"って呼ばれてました！」
-                    みたいなおもろそうな人生送ってません。。平凡of平凡の人生歩んでるので、面白味のかけらもないWebサイトです。<br>
-                    ただ、Webサイトを作ってみたい！という欲望だけで作りました。
-                    なので、謎の動画やアニメーションがふんだんに利用されていますが、ご了承ください。
-                </p>                   
-        </section>
+{% block content %}
+<!-- jumbotron→横幅全体に広がる大きなセクションを作る -->
+<section class="jumbotron jumbotron-fluid mb-0">
+    <!--背景用の動画ファイル-->
+    <video id="bg-video" autoplay loop muted>
+        <source src="{% static 'pages/movies/background.mp4' %}" type="video/mp4">
+            <!-- 動画ファイルがロードできなかった場合に表示するメッセージ -->
+            Your browser does not support the video tag.
+    </video>
+    <div class="home-content wrapper scroll_left">
+        <h2 class="page-title extinction">ようこそ、私のホームページへ</h2>
+        <h2 class="page-title appearance hidden">Step into My Site</h2>
+    </div>
+</section>
 
-        <section class="additional-content-2 original-gradient">
+<section class="additional-content original-gradient">
+    <div class="content-section scroll_up">
+        <h2 class="section-content">Helllo! There!</h2>
+        <br>
+        <p class="section-text">
+            このWebサイトは、私、Taishiのポートフォリオサイトです！<br>
+            正直、「自分、地元では"路上の伝説"って呼ばれてました！」
+            みたいなおもろそうな人生送ってません。。平凡of平凡の人生歩んでるので、面白味のかけらもないWebサイトです。<br>
+            ただ、Webサイトを作ってみたい！という欲望だけで作りました。
+            なので、謎の動画やアニメーションがふんだんに利用されていますが、ご了承ください。
+        </p>                   
+</section>
+
+<section class="additional-content-2 original-gradient">
+    <div class = "container">
+        <div class = "item">
             <div class="button">
-                <a href="#">ボタンをクリック</a>
-              </div>
-        </section>
-
-
-        
-        <!-- Bootstrap JavaScript -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        <script src="{% static 'pages/js/script.js' %}"></script>
-    </body>
-
-</html>
+                <a href="#">自己紹介</a>
+            </div>
+            <br>
+            <p>自己紹介ページに飛びます。私の簡単な生い立ちや、現在やっていること、趣味や特技など適当に書いています。
+        </div>
+        <div class = "item">
+            <div class="button">
+                <a href="#">制作物</a>
+            </div>
+            <br>
+            <p>今までの活動履歴が見ることができます。ハッカソンに参加した際の開発物や、自由気ままに作ったてきとうな作品まで、幅広く載せています。
+        </div>
+        <div class = "item">
+            <div class="button">
+                <a href="#">問い合わせ</a>
+            </div>
+            <br>
+            <p>私に興味を持った方がいたら、ぜひご連絡お待ちしております。SNSのリンクなども張っております。
+        </div>
+    </div>
+</section>
+{% endblock content %}

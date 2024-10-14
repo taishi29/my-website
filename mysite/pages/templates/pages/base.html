@@ -1,0 +1,41 @@
+{% load static %}
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Taishiのホームページ{% endblock title %}</title>
+        <meta name="description" content="Taishiのポートフォリオサイトです。">
+        <!-- Bootstrap css -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <!-- jQuery CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>        
+        <!-- 自作のcss -->
+        <link rel="stylesheet" href="{% static 'pages/css/style.css' %}">
+    </head>
+
+    <body>
+        <!-- ヘッダー -->
+        <header class="page-header">
+            <h1><a href="{% url goto %}"><img class="logo" src="{% static 'pages/images/logo.png' %}" alt="logoの画像"></a></h1>
+            <!-- ナビ -->
+            <nav>
+                <ul class="main-nav">
+                    <li><a href="#about">自己紹介</a></li>
+                    <li><a href="#works">制作物</a></li>
+                    <li><a href="#contact">問い合わせ</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            {% block content %}
+                不具合が生じて、ページが生成できませんでした。
+            {% endblock content %}
+        </main>
+
+        <!-- Bootstrap JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="{% static 'pages/js/script.js' %}"></script>
+    </body>
+</html>
