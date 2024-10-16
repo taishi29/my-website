@@ -1,0 +1,103 @@
+{% extends "pages/base.html" %}
+{% load static %}
+
+{% block title %}自己紹介{% endblock title %}
+
+{% block content %}
+<!-- jumbotron→横幅全体に広がる大きなセクションを作る -->
+<section class="jumbotron jumbotron-fluid mb-0">
+    <!--背景用の動画ファイル-->
+    <video id="bg-video" autoplay loop muted>
+        <source src="{% static 'pages/movies/introduction.mp4' %}" type="video/mp4">
+            <!-- 動画ファイルがロードできなかった場合に表示するメッセージ -->
+            Your browser does not support the video tag.
+    </video>
+    <div class="home-content wrapper scroll_left">
+        <h2 class="page-title extinction">私について</h2>
+        <h2 class="page-title appearance hidden">About Me</h2>
+    </div>
+</section>
+
+
+<section class="additional-content original-gradient">
+    <section id="profile" class="section-profile">
+        <h1>Introduction</h1>
+        <div class="section-profile__wrapper">
+            <div class="profile__image scroll_right"><img src="{% static 'pages/images/my_photo.jpg' %}" alt="photo"></div>
+            <div class="section-profile__description">
+                <div class="section-profile__text-area scroll_left">
+                    <div class="name">
+                        <h2>My name is Taishi</h2>
+                        <h3>-本名非公開-</h3>
+                    </div>
+                    <p>2003年静岡県生まれ。<br>
+                        静岡県の富士山のふもとで生まれ、現在宮崎大学に通っている学生。
+                        Pythonを触りたい延長線上で、WEBフレームワークのDjangoを始める。
+                        将来、X, Instagramを超えるSNSを作る予定。
+                        初心者プログラマーなので、温かい目で応援してくださいm(__)m
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>      
+</section>
+
+<section class="section-story original-gradient-story">
+    <h2>MY Story</h2>
+    <h3>ー私の生涯ー</h3>
+    <ul class="scroll_lists">
+        <li>
+        <div class="period">⚫︎幼少期</div>
+        <div class="story-summary">超かわいかった</div>
+        <div class="period1-img"><img src="{% static 'pages/images/boys.jpg' %}" alt="AIで作った男の子"></div>
+        <p> 今の自分とは想像がつかないレベルで可愛かった。まじで。<br>
+            <br>
+            ちなみに画像のかわいらしい男の子は私と無関係。AIで作った。
+        </li>
+        <li>
+        <div class="period">⚫︎小学生</div>
+        <div class="story-summary">ビットコインを発明</div>
+        <div class="period2-img"><img src="{% static 'pages/images/soroban.png' %}" alt="そろばんをしている男の子"></div>
+        <p>ビットコインの発明者が不明であり、未だ誰なのか世界中で議論されているが、実は私が小１のころに作った。サトシ・ナカモトは私の第二人格だ。<br>
+            <br>
+            そろばん教室に通っていた。普通、暗算する際は、頭の中でそろばんを想像して計算するのが一般的だが、頭が悪すぎて普通に頭の中で筆算をして暗算していた。そのため、全く暗算が得意ではない。 </p>
+        </li>
+        <li>
+        <div class="period">⚫︎中学生</div>
+        <div class="story-summary">バスケ部に入る</div>
+        <div class="period3-img"><img src="{% static 'pages/images/zeikin.png' %}" alt="税金泥棒"></div>
+        <p>全く運動好きでも得意でもないのに、バスケ部に入る。ちなみに、スラムダンクも黒子のバスケも全く見たことない。<br>
+            <br>
+            将来の夢は公務員。とかいうくそつまらん将来像を描いていた。 </p>
+        </li>
+        <li>
+        <div class="period">⚫︎高校生</div>
+        <div class="story-summary">弓道部に入る</div>
+        <div class="period4-img"><img src="{% static 'pages/images/kyudou.png' %}" alt="弓道の画像"></div>
+        <p>日本人であるならば、武道を嗜むべきだ。という熱い大和魂が突如現れ、弓道部に入る。ほんとは、運動しないけど、一応運動部の括りに入るっぽいから入部した。<br>
+            <br>
+            高校卒業する２か月前に、急遽宮崎へと進学決まる。人生何があるかわかりません。と感じた。</p>
+        </li>
+        <li>
+        <div class="period">⚫︎現在</div>
+        <div class="story-summary">大学生</div>
+        <div class="period5-img"><img src="{% static 'pages/images/neet.png' %}" alt="ニート"></div>
+        <p>現在、宮崎大学でしがないプログラマーをしている。<br>
+        </li>
+    </ul>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

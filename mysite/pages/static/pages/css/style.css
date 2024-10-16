@@ -133,6 +133,11 @@ img {
     width: 100%;
     background-image: linear-gradient(270deg, rgba(57, 101, 150, 1), rgba(233, 240, 250, 1));
 }
+.original-gradient-story {
+    height: 200px;
+    width: 100%;
+    background-image: linear-gradient(270deg, rgb(211, 176, 59), rgb(255, 235, 170));
+}
 .additional-content {
     color: #ffffff;
     min-height: 100vh; /* 画面全体の高さ */
@@ -234,4 +239,160 @@ img {
     right: 20px;
     border-radius: 1px;
     transition: 0.3s ease-in-out;
+}
+
+/* ===========================================
+ * Profile
+ * ======================================== */
+.section-profile {
+    height: auto;
+    padding: 80px 0 100px
+}
+.section-profile h1 {
+    text-align: center;
+    color: rgb(38, 90, 122);
+    margin-bottom: 30px;
+}
+.section-profile__wrapper {
+    display: flex;
+    flex-flow: row-reverse;
+    margin: 0 auto;
+    max-width: 880px;
+    width: 100%;
+    gap: 80px
+}
+.section-profile__description {
+    flex: 4;
+}
+.section-profile h2 {
+    margin-bottom: 24px
+}
+.section-profile h3 {
+    font-weight: 400;
+    font-size: 1.2rem
+}
+.profile__image {
+    flex: 2;
+    margin: 0 auto
+}
+.section-profile__text-area {
+    max-width: 880px;
+    padding-top: 40px;
+    text-align: left
+}
+.name {
+    width: 100%;
+    margin-bottom: 24px
+}
+.name img {
+    width: 100%
+}
+.section-profile__text-area p {
+    letter-spacing: 2px;
+    line-height: 2.6rem;
+    font-size: 1.1rem
+}
+
+
+
+/* ===========================================
+ * My Story
+ * ======================================== */
+.section-story {
+    width: 100%;
+    height: auto;
+    padding: 50px 200px 30px;
+    margin: 0 auto;
+    background-color: #34c9ff;
+}
+.section-story h2 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+.section-story h3 {
+    font-weight: 500;
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+    opacity: .8;
+    text-align: center;
+}
+.scroll_lists {
+    overflow: auto;
+    scroll-snap-type: x;
+    display: flex;
+}
+
+.scroll_lists li {
+    scroll-snap-align: start;
+    width: 340px;
+    flex: none;
+    list-style: none;
+    padding: 0px 25px; /* 余白を半分にして高さを小さくする */
+    text-align: left;
+    background-color: #F8F6F0
+}
+
+.scroll_lists li:nth-child(odd) {
+    background-color: #fff
+}
+
+.period {
+    font-size: 2.0rem;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    letter-spacing: 4px
+}
+
+.story-summary {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    letter-spacing: 2px
+}
+
+.period1-img,.period3-img,.period5-img {
+    width: 100%;
+    height: auto;
+    margin: 0 auto 24px;
+    background-color: #ffeec9;
+    text-align: center;
+    padding: 8px 0
+}
+
+.period2-img,.period4-img {
+    width: 100%;
+    height: auto;
+    margin: 0 auto 24px;
+    background-color: #ffe877;
+    text-align: center;
+    padding: 8px 0
+}
+
+.scroll_lists li img {
+    width: 60%;
+    object-position: center;
+    display: inline
+}
+
+@media (max-width: 1100px) {
+    .section-story {
+        padding:60px 60px 80px
+    }
+}
+
+@media (max-width: 500px) {
+    .section-story {
+        padding:60px 0 80px
+    }
+
+    .section-story h2 {
+        font-size: 4rem;
+        margin-bottom: 16px
+    }
+
+    .scroll_lists li {
+        width: 85%;
+        padding: 60px 24px
+    }
 }
