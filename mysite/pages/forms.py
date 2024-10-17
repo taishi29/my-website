@@ -8,7 +8,7 @@ class ContactForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 "class": "form-control",
-                "placeholder":"お名前",
+                "placeholder": "お名前",
             }
         )
     )
@@ -18,7 +18,7 @@ class ContactForm(forms.Form):
         widget=forms.EmailInput(
             attrs={
                 "class": "form-control",
-                "placeholder":"メールアドレス",
+                "placeholder": "メールアドレス",
             }
         )
     )
@@ -28,17 +28,17 @@ class ContactForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 "class": "form-control",
-                "placeholder":"件名",
+                "placeholder": "件名",
             }
         )
     )
     message = forms.CharField(
         label='メッセージ',
-        max_length=50,
+        max_length=1000,
         widget=forms.Textarea(
             attrs={
                 "class": "form-control",
-                "placeholder":"本文",
+                "placeholder": "本文",
             }
         )
     )
@@ -53,17 +53,16 @@ class ContactForm(forms.Form):
         # --- メール内容の設定 ---
 
         # 件名
-        subject = f'[お問い合わせ]{subject}'
+        subject = '[お問い合わせ]{}'.format(subject)
 
         # 本文
         body = (
-            'Taishiのホームページにてお問い合わせがありました。\n\n' + 
-            f'送信者: 
-            {name}\n' + 
+            'Taishiのホームページにてお問い合わせがありました。\n\n'
+            '送信者: {}\n'.format(name) +
             'メールアドレス:\n' + 
-            f'{email}\n' + 
+            '{}\n'.format(email) +
             'メッセージ\n' + 
-            f'{message}'
+            '{}'.format(message)
         )
 
         # 送信元メールアドレス
@@ -78,6 +77,3 @@ class ContactForm(forms.Form):
         # メール送信処理
         msg = EmailMessage(subject=subject, body=body, from_email=from_email, to=to_list, cc=cc_list)
         msg.send()
-    
-    
-    

@@ -21,6 +21,17 @@
 <section class="additional-content-contact original-gradient">
     <div class="scroll_up">
         <h2>お問い合わせ</h2>
+        {% if messages %}
+        <div class="wrapperMessages">
+            <div class="messagesInner">
+                <ul>
+                    {% for message in messages %}
+                    <li class="message">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endif %}
         <p>
             <form method="post">
                 <!-- CSRF対策用タグ -->
