@@ -1,4 +1,5 @@
 from django import forms
+from django.core.mail import EmailMessage
 
 class ContactForm(forms.Form):
     name = forms.CharField(
@@ -11,7 +12,7 @@ class ContactForm(forms.Form):
             }
         )
     )
-    mail = forms.EmailField(
+    email = forms.EmailField(
         label='メールアドレス',
         max_length=50,
         widget=forms.EmailInput(
@@ -41,6 +42,42 @@ class ContactForm(forms.Form):
             }
         )
     )
+    
+    def send_email(self):
+        # ユーザー入力値の取得
+        name = self.cleaned_data['name']
+        email = self.cleaned_data['email']
+        subject = self.cleaned_data['subject']
+        message = self.cleaned_data['message']
+
+        # --- メール内容の設定 ---
+
+        # 件名
+        subject = f'[お問い合わせ]{subject}'
+
+        # 本文
+        body = (
+            'Taishiのホームページにてお問い合わせがありました。\n\n' + 
+            f'送信者: 
+            {name}\n' + 
+            'メールアドレス:\n' + 
+            f'{email}\n' + 
+            'メッセージ\n' + 
+            f'{message}'
+        )
+
+        # 送信元メールアドレス
+        from_email = 'taishi03929@gmail.com'
+
+        # 送信先メールアドレス
+        to_list = ['taishi03929@gmail.com']
+
+        # CCリスト
+        cc_list = ['taishi03929@gmail.com']
+
+        # メール送信処理
+        msg = EmailMessage(subject=subject, body=body, from_email=from_email, to=to_list, cc=cc_list)
+        msg.send()
     
     
     
