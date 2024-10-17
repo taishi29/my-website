@@ -1,0 +1,48 @@
+{% extends "pages/base.html" %}
+{% load static %}
+
+{% block title %}自己紹介{% endblock title %}
+
+{% block content %}
+<!-- jumbotron→横幅全体に広がる大きなセクションを作る -->
+<section class="jumbotron jumbotron-fluid mb-0">
+    <!--背景用の動画ファイル-->
+    <video id="bg-video" autoplay loop muted>
+        <source src="{% static 'pages/movies/introduction.mp4' %}" type="video/mp4">
+            <!-- 動画ファイルがロードできなかった場合に表示するメッセージ -->
+            Your browser does not support the video tag.
+    </video>
+    <div class="home-content wrapper scroll_left">
+        <h2 class="page-title extinction">お問い合わせ</h2>
+        <h2 class="page-title appearance hidden">CONTACT</h2>
+    </div>
+</section>
+
+<section class="additional-content-contact original-gradient">
+    <div class="scroll_up">
+        <h2>お問い合わせ</h2>
+        <p>
+            <form method="post">
+                <!-- CSRF対策用タグ -->
+                {% csrf_token %}
+    
+                {{ form.non_field_errors }}
+    
+                <!-- formフィールドを一つずつ取り出す -->
+                {% for field in form %}
+                <div class="formContent">
+                    <p>{{ field.label_tag }}</p>
+                    {{ field }}
+                    {{ field.errors }}
+                </div>
+                {% endfor %}
+                <button type="submit">送 信</button>
+            </form>
+        
+        </p>    
+    </div>               
+</section>
+
+
+
+{% endblock content %}

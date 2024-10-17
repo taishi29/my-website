@@ -17,13 +17,13 @@
     <body>
         <!-- ヘッダー -->
         <header class="page-header">
-            <h1><a href="{% url logo_url %}"><img class="logo" src="{% static 'pages/images/logo.png' %}" alt="logoの画像"></a></h1>
+            <h1><a href="{% url 'index' %}"><img class="logo" src="{% static 'pages/images/logo.png' %}" alt="logoの画像"></a></h1>
             <!-- ナビ -->
             <nav>
                 <ul class="main-nav">
-                    <li><a href="#about">自己紹介</a></li>
+                    <li><a href="{% url 'intro' %}">自己紹介</a></li>
                     <li><a href="#works">制作物</a></li>
-                    <li><a href="#contact">問い合わせ</a></li>
+                    <li><a href="{% url 'contact' %}">問い合わせ</a></li>
                 </ul>
             </nav>
         </header>

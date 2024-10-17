@@ -20,7 +20,7 @@
 
 <section class="additional-content original-gradient">
     <div class="content-section scroll_up">
-        <h2 class="section-content">Helllo! There!</h2>
+        <h2 class="section-title">Helllo! There!</h2>
         <br>
         <p class="section-text">
             このWebサイトは、私、Taishiのポートフォリオサイトです！<br>
@@ -36,7 +36,7 @@
     <div class = "container scroll_up">
         <div class = "item">
             <div class="button">
-                <a href="{% url intro_url %}">自己紹介</a>
+                <a href="{% url 'intro' %}">自己紹介</a>
             </div>
             <br>
             <p>自己紹介ページに飛びます。私の簡単な生い立ちや、現在やっていること、趣味や特技など適当に書いています。
@@ -50,7 +50,7 @@
         </div>
         <div class = "item">
             <div class="button">
-                <a href="#">問い合わせ</a>
+                <a href="{% url 'contact' %}">問い合わせ</a>
             </div>
             <br>
             <p>私に興味を持った方がいたら、ぜひご連絡お待ちしております。SNSのリンクなども張っております。
