@@ -1,0 +1,13 @@
+# 追加するファイル
+.env
+mysite/local_settings.py 
+
+# Djangoに関連する不要ファイル
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+db.sqlite3-journal
+media/
+local_settings.py
