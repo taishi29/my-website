@@ -9,6 +9,31 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
+import os
+
+# SECRET_KEY: Djangoアプリケーションのセキュリティに必要なキー
+SECRET_KEY = '7tqbuj=kj^o=ipwtd*jeez*xk$4!1!-5vb!@!ddt@*uknh0'
+
+# デバッグモードを制御（本番環境では False にする）
+DEBUG = True
+
+# アプリケーションにアクセスできるホストを定義
+ALLOWED_HOSTS = []
+
+# メール設定（Gmailを使用する場合）
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'taishi03929@gmail.com'  # ここにメールアドレスを入力
+EMAIL_HOST_PASSWORD = 'fypt oytj beay gyjf'  # ここにGoogleアプリパスワードを入力
+
+# デフォルトのメール送信元（オプション）
+DEFAULT_FROM_EMAIL = 'taishi03929@gmail.com'
+
+# その他のDjango設定
+# ...
+
 
 from pathlib import Path
 
