@@ -7,10 +7,7 @@ from django.core.management.utils import get_random_secret_key
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # .envファイルを読み込む
-load_dotenv(BASE_DIR / '.env')  # BASE_DIRにある.envファイルを読み込む
-
-# プロジェクトのルートディレクトリを指定
-BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(BASE_DIR / '.env')
 
 # .envファイルからSECRET_KEYを取得。取得できない場合は例外を発生させる。
 SECRET_KEY = os.getenv('SECRET_KEY')
@@ -40,6 +37,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'pages/static'),
+]
 
 # アプリケーションのその他の設定
 INSTALLED_APPS = [
@@ -106,17 +107,6 @@ USE_TZ = True
 
 # デフォルトのプライマリキー設定
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-MEDIA_URL = 'pages/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-STATIC_URL = 'pages/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'pages/static'),
-]
-
 
 # 開発環境専用の local_settings.py を読み込み
 try:
