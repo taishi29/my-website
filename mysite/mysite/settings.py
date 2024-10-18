@@ -3,8 +3,11 @@ from pathlib import Path
 from dotenv import load_dotenv
 from django.core.management.utils import get_random_secret_key
 
+# プロジェクトのルートディレクトリを指定
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 # .envファイルを読み込む
-load_dotenv()
+load_dotenv(BASE_DIR / '.env')  # BASE_DIRにある.envファイルを読み込む
 
 # プロジェクトのルートディレクトリを指定
 BASE_DIR = Path(__file__).resolve().parent.parent
