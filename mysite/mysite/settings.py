@@ -113,6 +113,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_URL = 'pages/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'pages/static'),
+]
+
 
 # 開発環境専用の local_settings.py を読み込み
 try:
