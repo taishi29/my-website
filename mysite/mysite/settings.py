@@ -15,7 +15,7 @@ if not SECRET_KEY:
     raise ValueError("SECRET_KEY is not set in the environment variables")
 
 # デバッグモードを環境変数から取得し、True/Falseに変換
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
+DEBUG = False
 
 # 環境変数から許可されたホストを取得。複数のホストを指定する場合はカンマで区切る。
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
