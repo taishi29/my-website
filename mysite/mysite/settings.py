@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pages',  # pagesアプリの登録
+    'match',  # matchアプリの登録
 ]
 
 MIDDLEWARE = [

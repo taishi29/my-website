@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.jsライブラリの読み込み -->
+    <link rel="stylesheet" type="text/css" href="{% static 'match/css/style.css' %}"> <!-- 外部CSSの読み込み -->
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <!-- 画像をクリックすると次の画像に切り替える -->
+            <div class="card-image" id="company-image" style="background-image: url('{{ images.0.image.url }}');"></div>
+
+            <div class="overlay">
+                <div class="card-content">
+                    <h1>{{ company.name }} <span class="info">{{ company.overall_rating }}</span></h1>
+                    <p class="info">業界: {{ company.industry }}</p>
+                    <p class="info">所在地: {{ company.location }}</p>
+                </div>
+
+                <h2>カテゴリー別評価</h2>
+                <div class="radar-chart-container">
+                    <canvas id="ratingsChart"></canvas>
+                </div>
+
+                <div class="buttons">
+                    <form method="POST" action="{% url 'evaluate_company' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="company_id" value="{{ company.id }}">
+                        <input type="hidden" name="index" value="{{ index }}">
+                        <button type="submit" name="choice" value="bad" class="dislike">Bad</button>
+                        <button type="submit" name="choice" value="good" class="like">Good</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        <!-- 画像URL -->
+        const images = [
+            {% for image in images %}
+                "{{ image.image.url }}",
+            {% endfor %}
+        ];
+
+        let currentImageIndex = 0;
+        const companyImageElement = document.getElementById('company-image');
+
+        companyImageElement.addEventListener('click', function() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            companyImageElement.style.backgroundImage = `url(${images[currentImageIndex]})`;
+        });
+
+        // レーダーチャートの生成
+        const ctx = document.getElementById('ratingsChart').getContext('2d');
+        const ratingsChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['ワークライフバランス', '給与', 'キャリアアップ', '上司との関係', '職場環境'],
+                datasets: [{
+                    label: '企業評価',
+                    data: [{{ company.work_life_balance_rating }}, {{ company.compensation_rating }}, {{ company.career_advancement_rating }}, {{ company.management_relationship_rating }}, {{ company.work_environment_rating }}],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1,
+                    pointBackgroundColor: 'rgba(54, 162, 235, 1)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scale: {
+                    ticks: {
+                        beginAtZero: true,
+                        max: 5,
+                        stepSize: 1
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
