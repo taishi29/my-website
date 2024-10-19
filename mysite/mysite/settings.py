@@ -17,8 +17,8 @@ if not SECRET_KEY:
 # デバッグモードを環境変数から取得し、True/Falseに変換
 DEBUG = False
 
-# 環境変数から許可されたホストを取得。複数のホストを指定する場合はカンマで区切る。
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
+# ホスト設定
+ALLOWED_HOSTS = ['localhost', '.pythonanywhere.com']
 
 # メール設定（.envから読み込む）
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -40,9 +40,7 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # アプリケーションのその他の設定
 INSTALLED_APPS = [
