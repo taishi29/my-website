@@ -22,6 +22,12 @@ def introduction(request):
     }
     return render(request, 'pages/introduction.html', params)
 
+# work.html のview関数
+def work(request):
+    params = {
+    }
+    return render(request, 'pages/work.html', params)
+
 
 # contact.html のviwe関数
 class ContactView(generic.FormView):
