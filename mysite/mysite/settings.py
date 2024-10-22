@@ -77,12 +77,16 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'mysite.context_processors.google_analytics',            # Google Analyticsに関しての設定
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
+
+# Google Analytics設定
+GOOGLE_ANALYTICS_TRACKING_ID = 'G-LV03NDG949'  # トラッキングID
 
 # データベース設定
 DATABASES = {
