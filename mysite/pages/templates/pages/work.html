@@ -1,0 +1,24 @@
+{% extends "pages/base.html" %}
+{% load static %}
+
+{% block title %}制作物{% endblock title %}
+
+{% block content %}
+<!-- jumbotron→横幅全体に広がる大きなセクションを作る -->
+<section class="jumbotron jumbotron-fluid mb-0">
+    <!--背景用の動画ファイル-->
+    <video id="bg-video" autoplay loop muted>
+        <source src="{% static 'pages/movies/work.mp4' %}" type="video/mp4">
+            <!-- 動画ファイルがロードできなかった場合に表示するメッセージ -->
+            Your browser does not support the video tag.
+    </video>
+    <div class="home-content wrapper scroll_left">
+        <h2 class="page-title extinction">制作物</h2>
+        <h2 class="page-title appearance hidden">Work</h2>
+    </div>
+</section>
+
+
+
+
+{% endblock content %}
