@@ -559,12 +559,6 @@ li.card7 div.card-title p.card_timecategory {
     color: #b5b5b5;
     position: relative;
 }
-li.card7 div.card-title p small {
-    display: block;
-    font-size: 1rem;
-    font-weight: 400;
-    letter-spacing: -0.025em;
-}
 li.card7 div.card-description {
     padding: 0px 20px 20px;
     position: relative;
@@ -572,7 +566,6 @@ li.card7 div.card-description {
     color: #313131;
 }
 li.card7 div.card-actions {
-    box-shadow: 0 2px 0px 0 rgba(0,0,0,0.075);
     padding: 10px 15px 15px;
     text-align: center;
 }
