@@ -59,7 +59,6 @@ $(document).ready(function(){
     var zindex = 10;
     
     $("li.card7").click(function(e){
-      e.preventDefault();
   
       var isShowing = false;
   
