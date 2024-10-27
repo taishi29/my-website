@@ -8,11 +8,6 @@ html {
 img {
     max-width: 100%;
 }
-.wrapper {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 4%;
-}
 
 /* ===========================================
  * Header Styles
@@ -44,29 +39,46 @@ img {
 .main-nav a:hover {
     color: #0bd;
 }
+@media screen and (max-width: 1000px) {
+    .page-header{
+        padding: 5px;
+    }
+    .logo {
+        width: 40px;
+        height: auto;
+        margin-top: 23px;
+        margin-left: 5px;
+    }
+    .main-nav{
+        font-size: 1.05rem;
+    }
+}
 
 /* ===========================================
  * Body Styles
  * ======================================== */
 .home-content {
     text-align: center;
-    margin-top: 10%;
+    margin-top: 14%;
     color: white;
 }
 .page-title {
     font-size: 4rem;
     text-transform: uppercase;
     font-weight: normal;
-    transform: translateX(-30px);
+}
+@media screen and (max-width: 1000px) {
+    .home-content {
+        margin-top: 60%;
+    }
+    .page-title {
+        font-size: 3.0rem;
+    }
 }
 
 /* ===========================================
  * Section Styles
  * ======================================== */
-.content-section {
-    max-width: 600px;
-    margin: 0 auto;
-}
 .container {
     display: flex;
     justify-content: space-around;
@@ -78,6 +90,15 @@ img {
 }
 .item p {
     max-width: 200px;
+}
+@media screen and (max-width: 1000px) {
+    .container {
+        flex-direction: column; /* 縦に並べる */
+        align-items: center; /* 横方向で中央揃え */
+    }
+    .item {
+        margin-top: 30px;
+    }
 }
 
 /* 区切り線 */
@@ -99,16 +120,28 @@ img {
  * Text Styles
  * ======================================== */
 .section-title {
+    max-width: 600px;
     font-weight: bold;
     margin-bottom: 20px;
     line-height: 1.2;
     color: #fff;
 }
 .section-text {
+    max-width: 600px;
     font-size: 1.3rem;
     line-height: 1.8;
     font-family: 'Noto Sans JP', sans-serif; /* 日本語フォント */
     color: #ffffff;
+}
+@media screen and (max-width: 1000px) {
+    .section-title {
+        padding: 0 60px;
+        margin-bottom: 10px;
+    }
+    .section-text {
+        font-size: 1.1rem;
+        padding: 0 60px;
+    }
 }
 
 /* ===========================================
@@ -138,7 +171,6 @@ img {
     background-image: linear-gradient(270deg, rgb(211, 176, 59), rgb(255, 235, 170));
 }
 .additional-content {
-    color: #ffffff;
     min-height: 100vh; /* 画面全体の高さ */
     margin-top: 60vh;
     display: flex;
@@ -146,7 +178,6 @@ img {
     justify-content: center;
 }
 .additional-content-2 {
-    color: #ffffff;
     min-height: 100vh; /* 画面全体の高さ */
     display: flex;
     align-items: center;
@@ -266,12 +297,12 @@ img {
 .section-profile h1 {
     text-align: center;
     color: rgb(38, 90, 122);
-    margin-bottom: 30px;
+    margin-bottom: 70px;
 }
 .section-profile__wrapper {
     display: flex;
     flex-flow: row-reverse;
-    margin: 0 auto;
+    margin: 0 auto; 
     max-width: 880px;
     width: 100%;
     gap: 80px
@@ -305,10 +336,25 @@ img {
 .section-profile__text-area p {
     letter-spacing: 2px;
     line-height: 2.6rem;
-    font-size: 1.1rem
+    font-size: 1.1rem;
 }
-
-
+@media screen and (max-width: 1000px) {
+    .section-profile {
+        padding: 80px 30px;
+    }
+    .section-profile h1 {
+        font-size: 3rem;
+        margin-bottom: 16px
+    }
+    .section-profile__wrapper {
+        flex-direction: column; /* 縦に並べる */
+        align-items: center; /* 横方向で中央揃え */
+    }
+    .section-profile__text-area {
+        padding-top: 0px;
+        text-align: left;
+    }
+}
 
 /* ===========================================
  * My Story
@@ -336,7 +382,6 @@ img {
     scroll-snap-type: x;
     display: flex;
 }
-
 .scroll_lists li {
     scroll-snap-align: start;
     width: 340px;
@@ -346,11 +391,9 @@ img {
     text-align: left;
     background-color: #F8F6F0
 }
-
 .scroll_lists li:nth-child(odd) {
     background-color: #fff
 }
-
 .period {
     font-size: 2.0rem;
     font-weight: 700;
@@ -358,14 +401,12 @@ img {
     margin-bottom: 10px;
     letter-spacing: 4px
 }
-
 .story-summary {
     font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 24px;
     letter-spacing: 2px
 }
-
 .period1-img,.period3-img,.period5-img {
     width: 100%;
     height: auto;
@@ -374,7 +415,6 @@ img {
     text-align: center;
     padding: 8px 0
 }
-
 .period2-img,.period4-img {
     width: 100%;
     height: auto;
@@ -383,26 +423,18 @@ img {
     text-align: center;
     padding: 8px 0
 }
-
 .scroll_lists li img {
     width: 60%;
     object-position: center;
     display: inline
 }
-
-@media (max-width: 1100px) {
-    .section-story {
-        padding:60px 60px 80px
-    }
-}
-
-@media (max-width: 500px) {
+@media (max-width: 1000px) {
     .section-story {
         padding:60px 0 80px
     }
 
     .section-story h2 {
-        font-size: 4rem;
+        font-size: 3rem;
         margin-bottom: 16px
     }
 
@@ -412,13 +444,13 @@ img {
     }
 }
 
-/* messages */
-
+/* ===========================================
+ * Message
+ * ======================================== */
 .wrapperMessages {
     background-color: var(--base-color);
     padding: 20px 0;
 }
-
 .message {
     background-color: var(--semi-dark-color);
     width: fit-content;
@@ -427,8 +459,6 @@ img {
     color: var(--base-color);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
-
-
 
 /* ===========================================
  * Work
@@ -440,6 +470,7 @@ img {
 }
 .additional-content-work h2 {
     text-align: center;
+    font-size: 3rem;
     color: rgb(38, 90, 122);
     padding-top: 50px;
 }
@@ -641,12 +672,13 @@ li.card7.show div.flap2 {
     top: 50%;
     transform: translateY(-50%);
 }
-
-@media screen and (max-width: 767px) {
-ul.cards7 {
-    flex-direction: column;
-}
-li.card7 {
-    width: 100%;
-}
+@media screen and (max-width: 1000px) {
+    .ul.cards7 {
+        flex-direction: column;
+        margin: 0px 10px;
+    }
+    .li.card7 {
+        width: 100%;
+        margin: 30px 0px;
+    }
 }
