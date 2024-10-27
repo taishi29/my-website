@@ -1,7 +1,8 @@
 # 追加するファイル
 .env
 mysite/local_settings.py 
-
+db.sqlite3
+ 
 # Djangoに関連する不要ファイル
 *.log
 *.pot
