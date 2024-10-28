@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP');
 /* ===========================================
  * General Styles
  * ======================================== */
@@ -126,15 +127,33 @@ img {
     line-height: 1.2;
     color: #fff;
 }
+.section-title-thanks {
+    max-width: 600px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: #fffcb3;
+    font-family: 'Noto Serif JP', sans-serif;
+}
 .section-text {
     max-width: 600px;
     font-size: 1.3rem;
     line-height: 1.8;
-    font-family: 'Noto Sans JP', sans-serif; /* 日本語フォント */
     color: #ffffff;
+}
+.section-text-thanks {
+    max-width: 600px;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #ffffff;
+    font-family: 'Noto Serif JP', sans-serif;
 }
 @media screen and (max-width: 1000px) {
     .section-title {
+        padding: 0 60px;
+        margin-bottom: 10px;
+    }
+    .section-title-thanks {
         padding: 0 60px;
         margin-bottom: 10px;
     }
@@ -192,12 +211,33 @@ img {
     min-height: 100vh; /* 画面全体の高さ */
     margin-top: 60vh; /* 必要なら削除、もしくは調整 */
 }
-
 .additional-content-contact h2 {
     text-align: center;
     color: rgb(38, 90, 122);
     margin-bottom: 30px;
     margin-top: 80px; /* 上に少し余白を持たせる */
+}
+.thanks {
+    top: 0;
+    width: 100%;
+    min-height: 100vh; /* 画面全体の高さをカバーする */
+    position: fixed;
+    z-index: -1; /* 動画を後ろに表示 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(270deg, rgba(57, 101, 150, 1), rgba(233, 240, 250, 1));
+}
+.padding {
+    margin-top: 70px;
+}
+@media screen and (max-width: 1000px) {
+    .additional-content-contact h2 {
+        font-size: 3rem;
+    }
+    .additional-content-thanks h2 {
+        font-size: 3rem;
+    }
 }
 
 /* ===========================================

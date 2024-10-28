@@ -1,0 +1,21 @@
+{% extends "pages/base.html" %}
+{% load static %}
+
+{% block title %}お問い合わせありがとうございます{% endblock title %}
+
+{% block content %}
+<section class="thanks">
+    <div class="scroll_up">
+        <h2 class="section-title-thanks">お問い合わせありがとうございます</h2>
+        <br>
+        <p class="section-text-thanks">
+            この度は, お問い合わせいただき, 誠にありがとうございます。<br>
+            送信内容を確認し, もし必要ならば折り返しご連絡させていただきますので, 恐れ入りますがしばらくお待ちください。
+        </p>  
+        <div class = "item padding">
+            <div class="button">
+                <a href="{% url 'index' %}">ホームに戻る</a>
+            </div>
+        </div>               
+</section>
+{% endblock content %}

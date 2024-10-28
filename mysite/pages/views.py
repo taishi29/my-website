@@ -2,7 +2,9 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib import messages
+from django.views.generic import TemplateView
 import logging
+
 logger = logging.getLogger(__name__)
 
 
@@ -33,7 +35,7 @@ def work(request):
 class ContactView(generic.FormView):
     template_name = "pages/contact.html"
     form_class = ContactForm
-    success_url = reverse_lazy('contact')
+    success_url = reverse_lazy('thanks')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -45,4 +47,7 @@ class ContactView(generic.FormView):
         messages.success(self.request, 'お問い合わせありがとうございます。')
         logger.info('Contact sent by {}'.format(form.cleaned_data['name']))
         return super().form_valid(form)
-    
+
+# thanks.html のviwes関数
+class ThanksView(TemplateView):
+    template_name = "pages/thanks.html"
