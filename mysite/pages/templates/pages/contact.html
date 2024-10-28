@@ -37,8 +37,6 @@
                 <!-- CSRF対策用タグ -->
                 {% csrf_token %}
     
-                {{ form.non_field_errors }}
-    
                 <!-- formフィールドを一つずつ取り出す -->
                 {% for field in form %}
                 <div class="formContent">
