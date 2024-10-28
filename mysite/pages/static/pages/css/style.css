@@ -59,7 +59,7 @@ img {
  * ======================================== */
 .home-content {
     text-align: center;
-    margin-top: 14%;
+    margin-top: 16%;
     color: white;
 }
 .page-title {
@@ -502,7 +502,8 @@ a.btn7 {
 ul.cards7 {
     border: none;
     padding: 0;
-    margin: 20px 200px 100px 200px;
+    min-width: 280px; /* カードの最小幅を設定 */
+    margin: 50px 200px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -672,13 +673,25 @@ li.card7.show div.flap2 {
     top: 50%;
     transform: translateY(-50%);
 }
-@media screen and (max-width: 1000px) {
-    .ul.cards7 {
-        flex-direction: column;
-        margin: 0px 10px;
+@media screen and (min-width: 600px) and (max-width: 1000px) {
+    ul.cards7 {
+        flex-direction: column; /* 縦に並べる */
+        max-width: 500px; /* カードの最小幅を設定 */
     }
-    .li.card7 {
-        width: 100%;
-        margin: 30px 0px;
+    li.card7 {
+        width: 100%;          /* 親要素の幅に合わせる */
+        margin-bottom: 50px;  /* カード間のスペースを追加 */
+    }
+}
+@media screen and (max-width: 600px) {
+    ul.cards7 {
+        flex-direction: column; /* 縦に並べる */
+        max-width: 500px; /* カードの最小幅を設定 */
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+    li.card7 {
+        width: 100%;          /* 親要素の幅に合わせる */
+        margin-bottom: 50px;  /* カード間のスペースを追加 */
     }
 }
