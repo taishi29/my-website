@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ごみ収集通知</title>
+</head>
+<body>
+    <h1>ごみ収集通知</h1>
+    {% if error_msg %}
+        <p style="color: red;">エラー: {{ error_msg }}</p>
+    {% elif msg %}
+        <p>{{ msg }}</p>
+    {% else %}
+        <p>情報がありません。</p>
+    {% endif %}
+</body>
+</html>

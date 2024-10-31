@@ -74,14 +74,6 @@ def get_trash_kinds_name(soup: BeautifulSoup, td_class: str) -> ProcessingResult
         return ProcessingResult(success=True, trash_kinds=trash_kinds)
 
 
-# 各処理のエラーハンドリングをまとめた関数
-def handle_result(result: ProcessingResult) -> bool:
-    if not result.success:
-        print(result.error_msg)
-        exit()  # エラーが発生した場合はプログラムを終了
-    return True
-
-
 # Line notifyを用いて、引数で受け取った処理結果のメッセージをLINEで通知する関数
 def line_notify(msg: str):
     token = os.getenv("LINE_NOTIFY_TOKEN")
