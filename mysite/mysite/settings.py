@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pages',  # pagesアプリの登録
-    'match',
+    'match',  # matchアプリの登録
+    'trash_notifier', # trash_notifierアプリの登録
 ]
 
 MIDDLEWARE = [
