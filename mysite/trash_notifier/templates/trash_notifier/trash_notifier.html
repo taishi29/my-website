@@ -1,19 +1,32 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <title>ごみ収集通知</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="スクレイピングを用いて、ごみ収集日をLINEで通知する。">   
+    <!-- 自作のcss -->
+    <link rel="stylesheet" href="{% static 'trash_notifier/css/style.css' %}">
 </head>
 <body>
-    <p>
-        <h1>{{ msg_date }}</h1>
-        {% if error_msg %}
-            <p style="color: red;">エラー: {{ error_msg }}</p>
-        {% elif msg_trash_kind %}
-            <p>{{ msg_trash_kind }}</p>
-        {% else %}
-            <p>情報がありません。</p>
-        {% endif %}
-        <h1>{{ msg_redundancy}}
+    <main>
+        <div>
+            {% if error_msg %}
+            <h1 class="font-color">エラー: {{ error_msg }}</h1>
+            {% else %}
+            <h1>{{ msg_date }}</h1>
+            {% for msg_trash_kind in msg_trash_kinds %}
+            <h1 class="font-color">{{ msg_trash_kind }}</h1>
+            {% endfor %}
+            <h1>{{ msg_redundancy }}</h1>
+            {% endif %}
+            <div>
+                {% for img_arg in img_args %}
+                <img src="{% static 'trash_notifier/images/' %}{{ img_arg }}.png" alt="ごみ収集日" class="img-style">
+                {% endfor %}
+            </div>
+        </div>
+    </main>
 </body>
 </html>

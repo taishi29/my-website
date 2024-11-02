@@ -1,7 +1,7 @@
 import datetime
 from django.shortcuts import render
 from django.http import HttpResponse
-from .utils import web_analysis, get_date, generate_class_name, get_trash_kinds_name, line_notify
+from .utils import web_analysis, get_date, generate_class_name, get_trash_kinds_name, line_notify, img
 
 
 def trash_notify(request):
@@ -22,7 +22,7 @@ def trash_notify(request):
         return render(request, 'trash_notifier/trash_notifier.html', params)
     
     # 2. 日付の取得
-    date_result = get_date()
+    date_result = get_date("")
     if not date_result.success:
         params = {
             'error_msg': date_result.error_msg,
@@ -48,18 +48,23 @@ def trash_notify(request):
     # 5. LINEで通知するメッセージの作成と送信
     msg_date = "\n本日" + date_result.date.strftime("%m月%d日") + "は\n"
     for trash_kind in trash_kinds_result.trash_kinds:
-        msg_trash_kind = f"「{trash_kind}」" + "\n"
-    msg_redundancy = "日です！"
+        msg_trash_kinds = [f"「{trash_kind}」" for trash_kind in trash_kinds_result.trash_kinds]  # リストにする
+    msg_redundancy = "\n日です！"
     
     # LINEに通知を送信
-    msg = msg_date + msg_trash_kind + msg_redundancy
+    msg = msg_date + "\n".join(msg_trash_kinds) + msg_redundancy
     line_notify(msg)
     
+    # ごみの種類に適する画像の引数取得
+    img_arg_result = img(trash_kinds_result.trash_kinds)
+    img_args = [result.img_args for result in img_arg_result if result.success]
+
     # 成功時のメッセージ表示
     params = {
         'msg_date': msg_date,
-        'msg_trash_kind': msg_trash_kind,
+        'msg_trash_kinds': msg_trash_kinds,
         'msg_redundancy': msg_redundancy,
+        'img_args': img_args,
     }
     return render(request, 'trash_notifier/trash_notifier.html', params)
     

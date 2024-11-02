@@ -19,6 +19,7 @@ class ProcessingResult:
     td_class: Optional[str] = None
     trash_kinds: Optional[List[str]] = None
     error_msg: Optional[str] = None
+    img_args: Optional[str] = None
 
 
 # URLを環境変数として読み込み、htmlリクエストを送信、解析する関数
@@ -84,3 +85,26 @@ def line_notify(msg: str):
     # requestsモジュールのpost関数を利用してメッセージを送信する
     # ヘッダにトークン情報，パラメータにメッセージを指定する
     requests.post(url, headers=headers, params=payload)
+    
+
+# ごみ収集内容に沿った画像を表示する関数
+def img(trash_kinds: List[str]) -> List[ProcessingResult]:
+    results = []
+    for trash_kind_element in trash_kinds:
+        if trash_kind_element == "燃やせるごみ":
+            results.append(ProcessingResult(success=True, img_args="burnable_trash"))
+        elif trash_kind_element == "プラスチック製容器包装":
+            results.append(ProcessingResult(success=True, img_args="plastic_trash"))
+        elif trash_kind_element == "空き缶・空きびん":
+            results.append(ProcessingResult(success=True, img_args="cans_bottles"))
+        elif trash_kind_element == "衣類・古紙":
+            results.append(ProcessingResult(success=True, img_args="clothing_paper"))
+        elif trash_kind_element == "その他資源物（蛍光管・乾電池・破砕困難物・水銀式体温計・温度計）":
+            results.append(ProcessingResult(success=True, img_args="other_recyclables"))
+        elif trash_kind_element == "ペットボトル":
+            results.append(ProcessingResult(success=True, img_args="pet_bottles"))
+        elif trash_kind_element == "金属類":
+            results.append(ProcessingResult(success=True, img_args="metals"))
+        else:
+            results.append(ProcessingResult(success=True, img_args="None"))
+    return results
