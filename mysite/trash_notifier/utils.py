@@ -67,8 +67,8 @@ def get_trash_kinds_name(soup: BeautifulSoup, td_class: str) -> ProcessingResult
     
     trash_kinds_elements = td_element.find_all("span", class_="trash_kind_name")
     if not trash_kinds_elements:
-        none_trash_kinds = "ゴミ収集内容が見つかりませんでした。"
-        return ProcessingResult(success=False, error_msg=none_trash_kinds)
+        none_trash_kinds = ["ごみ収集日ではない"]
+        return ProcessingResult(success=True, trash_kinds=none_trash_kinds)
     else:
         trash_kinds = [item.get_text() for item in trash_kinds_elements]
         return ProcessingResult(success=True, trash_kinds=trash_kinds)

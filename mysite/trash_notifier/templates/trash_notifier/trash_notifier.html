@@ -5,13 +5,15 @@
     <title>ごみ収集通知</title>
 </head>
 <body>
-    <h1>ごみ収集通知</h1>
-    {% if error_msg %}
-        <p style="color: red;">エラー: {{ error_msg }}</p>
-    {% elif msg %}
-        <p>{{ msg }}</p>
-    {% else %}
-        <p>情報がありません。</p>
-    {% endif %}
+    <p>
+        <h1>{{ msg_date }}</h1>
+        {% if error_msg %}
+            <p style="color: red;">エラー: {{ error_msg }}</p>
+        {% elif msg_trash_kind %}
+            <p>{{ msg_trash_kind }}</p>
+        {% else %}
+            <p>情報がありません。</p>
+        {% endif %}
+        <h1>{{ msg_redundancy}}
 </body>
 </html>
