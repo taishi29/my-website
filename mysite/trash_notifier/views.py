@@ -22,7 +22,7 @@ def trash_notify(request):
         return render(request, 'trash_notifier/trash_notifier.html', params)
     
     # 2. 日付の取得
-    date_result = get_date("")
+    date_result = get_date()
     if not date_result.success:
         params = {
             'error_msg': date_result.error_msg,

@@ -46,18 +46,26 @@
         <!-- card -->
         <!-- card -->
         <li class="card7">
-            <div class="card__image-holder"> <img class="card__image" src="{% static 'pages/images/development.png' %}" alt="開発中"> </div>
+            <div class="card__image-holder"> <img class="card__image" src="{% static 'pages/images/trash_notifier.png' %}" alt="ごみ収集日をスクレイピング"> </div>
             <div class="card-title"> <a href="#" class="toggle-info btn7">
                 <span class="left"></span>
                 <span class="right"></span>
             </a>
-            <p class="card_timecategory"><time class="pubdate entry-time dfont" itemprop="datePublished" datetime="2021-10-16">Coming soon</time></p>
-            <p class="card_htitle">スクレイピング</p>
+            <p class="card_timecategory"><time class="pubdate entry-time dfont" itemprop="datePublished" datetime="2024-11-03">2024年11月3日</time></p>
+            <p class="card_htitle">ごみ収集日をスクレイピングして、LINEで通知</p>
             </div>
             <div class="card-flap flap1">
-            <div class="card-description">開発中です！</div>
+            <div class="card-description">
+                ごみ収集情報を、スクレイピングしてLINEで通知するアプリです。<br>
+                <br>
+                私の住まいのごみ収集日を載せているWEBサイトから、今日のごみ収集内容をスクレイピングして、その情報をWEBサイトに表示させています。
+                また、サーバーの設定で、既定の時間になったらプログラムを実行するように設定し、実行結果がLINE notifyを用いて、通知されるようになっています。
+                <br>
+                <br>
+                ※このサイトをクリックすると、私のLINEに今日のごみ収集情報が通知されます。
+            </div>
             <div class="card-flap flap2">
-                <div class="card-actions"> <a href="#" class="btn7">のぞきに行く</a> </div>
+                <div class="card-actions"> <a href="{% url 'trash_notifier' %}" class="btn7">のぞきに行く</a> </div>
             </div>
             </div>
         </li>
