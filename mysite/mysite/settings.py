@@ -18,7 +18,7 @@ if not SECRET_KEY:
 DEBUG = False
 
 # ホスト設定
-ALLOWED_HOSTS = ['localhost', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['3.107.27.57', 'localhost', '127.0.0.1', '.pythonanywhere.com']
 
 # メール設定（.envから読み込む）
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
