@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib import messages
 from django.views.generic import TemplateView
+from django.http import HttpResponse
 import logging
 
 logger = logging.getLogger(__name__)
@@ -50,3 +51,8 @@ class ContactView(generic.FormView):
 # thanks.html のviwes関数
 class ThanksView(TemplateView):
     template_name = "pages/thanks.html"
+
+
+# health_check のviwe関数
+def health_check(request):
+    return HttpResponse("OK", status=200)

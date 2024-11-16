@@ -1,0 +1,6 @@
+SECRET_KEY=ss43tr1866ota8kn1a8%tnv49f%_i2dxnb*++y!vl8&9e&
+DEBUG=False
+ALLOWED_HOSTS=localhost,.pythonanywhere.com,3.107.27.57
+EMAIL_HOST_USER=taishi03929@gmail.com
+EMAIL_HOST_PASSWORD=fypt oytj beay gyjf
+DEFAULT_FROM_EMAIL=taishi03929@gmail.com
