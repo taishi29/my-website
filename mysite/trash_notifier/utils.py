@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup # HTMLデータを解析する機能
 from typing import List, Optional  # Optional は None を含む可能性がある型を表す
 
 
-load_dotenv() # .envファイルの内容を環境変数として読み込む
+load_dotenv('/home/ec2-user/my-website/mysite/trash_notifier/.env') # .envファイルの内容を環境変数として読み込む
  
  
 # 関数の処理結果を格納するデータクラス
