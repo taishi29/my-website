@@ -18,7 +18,7 @@ if not SECRET_KEY:
 DEBUG = False
 
 # ホスト設定
-ALLOWED_HOSTS = ['taishi-sushi.com', 'www.taishi-sushi.com', '13.211.242.180', '172.31.8.194', 'localhost', '.pythonanywhere.com', 'taishi-sushi-elb-1983899373.ap-southeast-2.elb.amazonaws.com']
+ALLOWED_HOSTS = ['taishi-sushi.com', 'www.taishi-sushi.com', '13.211.242.180', '172.31.8.194', '127.0.0.1', 'localhost', '.pythonanywhere.com', 'taishi-sushi-elb-1983899373.ap-southeast-2.elb.amazonaws.com']
 
 # ALBからのHTTPSリクエストをDjangoで信頼する
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -27,7 +27,7 @@ CSRF_TRUSTED_ORIGINS = ['https://taishi-sushi.com', 'https://www.taishi-sushi.co
 # HTTPSを使用する場合のセキュリティ設定を追加
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 
 # メール設定（.envから読み込む）
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
