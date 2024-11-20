@@ -38,15 +38,21 @@ class ContactView(generic.FormView):
     form_class = ContactForm
     success_url = reverse_lazy('thanks')
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-
-        return context
-    
     def form_valid(self, form):
-        form.send_email()
-        logger.info('Contact sent by {}'.format(form.cleaned_data['name']))
-        return super().form_valid(form)
+        try:
+	    form.send_email()
+	    logger.info('Contact sent by {}'.format(form.cleaned_data['name']))
+	except Exception as e:
+	    logger.error(f"Email sending failed: {str(e)}")
+            messages.error(self.request, "メール送信中にエラーが発生しました。")
+            return self.form_invalid(form)
+
+	messages.success(self.request, "お問い合わせ内容を送信しました！")
+	return super().form_valid(form)
+
+    def form_invalid(self, form):
+	messages.error(self.request, "入力内容にエラーがあります。確認して下さい。")
+	return super().form_invalid(form)
 
 # thanks.html のviwes関数
 class ThanksView(TemplateView):
