@@ -1,5 +1,6 @@
 from django import forms
 from django.core.mail import EmailMessage
+from django.conf import settings
 
 class ContactForm(forms.Form):
     name = forms.CharField(
@@ -65,15 +66,17 @@ class ContactForm(forms.Form):
             '{}'.format(message)
         )
 
-        # 送信元メールアドレス
-        from_email = 'taishi03929@gmail.com'
+        # 送信元メールアドレス (設定から取得)
+        from_email = settings.DEFAULT_FROM_EMAIL
 
-        # 送信先メールアドレス
-        to_list = ['taishi03929@gmail.com']
-
-        # CCリスト
-        cc_list = ['taishi03929@gmail.com']
+        # 送信先メールアドレス (設定から取得)
+        to_list = [settings.EMAIL_HOST_USER]
+        cc_list = [settings.EMAIL_HOST_USER]
 
         # メール送信処理
-        msg = EmailMessage(subject=subject, body=body, from_email=from_email, to=to_list, cc=cc_list)
-        msg.send()
+        try:
+            msg = EmailMessage(subject=subject, body=body, from_email=from_email, to=to_list, cc=cc_list)
+            msg.send()
+        except Exception as e:
+            print(f"メール送信エラー: {e}") 
+            raise forms.ValidationError(f"メール送信中にエラーが発生しました: {e}")

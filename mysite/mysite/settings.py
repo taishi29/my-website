@@ -29,16 +29,11 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 SECURE_SSL_REDIRECT = False
 
-# メール設定（.envから読み込む）
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-
-# デフォルトのメール送信元（オプション）
-DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', EMAIL_HOST_USER)
+# メール設定
+AWS_SES_REGION_NAME = "ap-southeast-2"
+AWS_SES_REGION_ENDPOINT = "email.ap-southeast-2.amazonaws.com"
+EMAIL_BACKEND = "django_ses.SESBackend" #追加する
+DEFAULT_FROM_EMAIL = "taishi03929@gmail.com" #追加する、@の後ろは取得したドメイン
 
 # 静的ファイルとメディアファイルの設定
 MEDIA_URL = '/media/'
@@ -59,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_ses' # AWS SESの登録
     'pages',  # pagesアプリの登録
     'match',  # matchアプリの登録
     'trash_notifier', # trash_notifierアプリの登録
