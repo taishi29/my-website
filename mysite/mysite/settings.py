@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_ses' # AWS SESの登録
+    'django_ses', # AWS SESの登録
     'pages',  # pagesアプリの登録
     'match',  # matchアプリの登録
     'trash_notifier', # trash_notifierアプリの登録
