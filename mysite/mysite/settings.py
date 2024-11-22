@@ -92,7 +92,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Google Analytics設定
-GOOGLE_ANALYTICS_TRACKING_ID = 'G-LV03NDG949'  # トラッキングID
+GOOGLE_ANALYTICS_TRACKING_ID = os.getenv('GOOGLE_ANALYTICS_TRACKING_ID', None)
 
 # データベース設定
 DATABASES = {
