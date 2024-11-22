@@ -110,6 +110,26 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
+# ロギング設定
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': '/var/log/django/error.log',  # 実際のパスに置き換えてください
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    },
+}
+
 # ロケール設定
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
@@ -118,3 +138,4 @@ USE_TZ = True
 
 # デフォルトのプライマリキー設定
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
