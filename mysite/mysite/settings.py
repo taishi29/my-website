@@ -18,11 +18,11 @@ if not SECRET_KEY:
 DEBUG = False
 
 # ホスト設定
-ALLOWED_HOSTS = ['taishi-sushi.com', 'www.taishi-sushi.com', '13.211.242.180', '172.31.8.194', '127.0.0.1', 'localhost', '.pythonanywhere.com', 'taishi-sushi-elb-1983899373.ap-southeast-2.elb.amazonaws.com']
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 
 # ALBからのHTTPSリクエストをDjangoで信頼する
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-CSRF_TRUSTED_ORIGINS = ['https://taishi-sushi.com', 'https://www.taishi-sushi.com']
+CSRF_TRUSTED_ORIGINS = os.getenv('SRF_TRUSTED_ORIGINS', '').split(',')
 
 # HTTPSを使用する場合のセキュリティ設定を追加
 SESSION_COOKIE_SECURE = True
@@ -30,10 +30,10 @@ CSRF_COOKIE_SECURE = True
 SECURE_SSL_REDIRECT = False
 
 # メール設定
-AWS_SES_REGION_NAME = "ap-southeast-2"
-AWS_SES_REGION_ENDPOINT = "email.ap-southeast-2.amazonaws.com"
-EMAIL_BACKEND = "django_ses.SESBackend" #追加する
-DEFAULT_FROM_EMAIL = "taishi03929@gmail.com" #追加する、@の後ろは取得したドメイン
+AWS_SES_REGION_NAME = os.getenv('AWS_SES_REGION_NAME')
+AWS_SES_REGION_ENDPOINT = os.getenv('AWS_SES_REGION_ENDPOINT')
+EMAIL_BACKEND = os.getenv('EMAIL_BACKEND')
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
 
 # 静的ファイルとメディアファイルの設定
 MEDIA_URL = '/media/'
@@ -118,7 +118,7 @@ LOGGING = {
         'file': {
             'level': 'ERROR',
             'class': 'logging.FileHandler',
-            'filename': '/var/log/django/error.log',  # 実際のパスに置き換えてください
+            'filename': '/var/log/django/error.log',
         },
     },
     'loggers': {
