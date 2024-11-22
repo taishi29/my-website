@@ -118,9 +118,3 @@ USE_TZ = True
 
 # デフォルトのプライマリキー設定
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# 開発環境専用の local_settings.py を読み込み
-try:
-    from .local_settings import *
-except ImportError:
-    pass  # local_settings.pyがない場合は本番環境の設定が有効
