@@ -53,7 +53,7 @@ def trash_notify(request):
     
     # LINEに通知を送信
     msg = msg_date + "\n".join(msg_trash_kinds) + msg_redundancy
-    line_notify(msg)
+    # line_notify(msg)
     
     # ごみの種類に適する画像の引数取得
     img_arg_result = img(trash_kinds_result.trash_kinds)
