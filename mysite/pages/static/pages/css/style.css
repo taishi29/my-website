@@ -127,6 +127,12 @@ img {
     line-height: 1.2;
     color: #fff;
 }
+.section-text {
+    max-width: 600px;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #ffffff;
+}
 .section-title-thanks {
     max-width: 600px;
     font-weight: bold;
@@ -153,6 +159,10 @@ img {
     }
     .section-text-thanks {
         font-size: 1.2rem;
+        padding: 0 60px;
+    }
+    .section-text {
+        font-size: 1.1rem;
         padding: 0 60px;
     }
 }
