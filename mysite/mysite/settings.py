@@ -112,6 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # ロギング設定
+LOG_FILE_PATH = os.getenv('DJANGO_LOG_FILE')
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -119,7 +120,7 @@ LOGGING = {
         'file': {
             'level': 'ERROR',
             'class': 'logging.FileHandler',
-            'filename': '/var/log/django/error.log',
+            'filename': LOG_FILE_PATH,
         },
     },
     'loggers': {

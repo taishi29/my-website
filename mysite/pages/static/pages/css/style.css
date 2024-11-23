@@ -135,12 +135,6 @@ img {
     color: #fffcb3;
     font-family: 'Noto Serif JP', sans-serif;
 }
-.section-text {
-    max-width: 600px;
-    font-size: 1.3rem;
-    line-height: 1.8;
-    color: #ffffff;
-}
 .section-text-thanks {
     max-width: 600px;
     font-size: 1.3rem;
@@ -157,8 +151,8 @@ img {
         padding: 0 60px;
         margin-bottom: 10px;
     }
-    .section-text {
-        font-size: 1.1rem;
+    .section-text-thanks {
+        font-size: 1.2rem;
         padding: 0 60px;
     }
 }
