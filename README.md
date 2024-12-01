@@ -7,4 +7,4 @@ https://taishi-sushi.com
 ## デプロイ先について
 本プロジェクトのデプロイは、AWS EC2インスタンスを利用して行いました。  
 WebサーバーにはNginx、アプリケーションサーバーにはuWSGIを採用しています。  
-また、セキュリティ対策としてAWS Certificate Manager (ACM) を活用し、SSL/TLS証明書を取得および設定することで、HTTPS通信を実現しています。  
+また、セキュリティ対策としてAWS Certificate Manager (ACM) を活用し、SSL/TLS証明書を取得および設定することで、HTTPS通信を実現。
